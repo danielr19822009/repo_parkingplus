@@ -1,0 +1,238 @@
+/* -------- COLOR BASE -------- */
+:root {
+    --amarillo: #F2A900;
+    --amarillo-oscuro: #c58600;
+}
+
+/* -------- INDEX -------- */
+.home-container {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 40px;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+
+.home-container h1 {
+    color: var(--amarillo);
+}
+
+.home-container p {
+    color: #444;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.home-container img {
+    max-width: 200px;
+    margin: 20px 0;
+}
+
+/* Enlaces principales */
+.volver {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--amarillo);
+    font-weight: bold;
+    width: 100%;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.volver:hover {
+    text-decoration: underline;
+}
+
+/* -------- REGISTRO -------- */
+.registro-container {
+    max-width: 550px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.registro-container h1 {
+    text-align: center;
+    color: var(--amarillo);
+    margin-bottom: 10px;
+}
+
+.registro-container p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Campos */
+.form-registro .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-registro label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #222;
+}
+
+.form-registro input {
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+
+.form-registro input:focus {
+    border-color: var(--amarillo);
+    box-shadow: 0 0 5px rgba(242,169,0,0.4);
+    outline: none;
+}
+
+/* Botón */
+.form-registro .btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--amarillo);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.form-registro .btn:hover {
+    background: var(--amarillo-oscuro);
+}
+
+/* -------- CONTACTO -------- */
+.form-contacto {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-contacto input,
+.form-contacto textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.form-contacto button {
+    padding: 12px;
+    background: var(--amarillo);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.form-contacto button:hover {
+    background: var(--amarillo-oscuro);
+}
+
+/* -------- NOSOTROS -------- */
+.nosotros-container {
+    max-width: 700px;
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 4px 14px rgba(0,0,0,0.18);
+}
+
+.imagen-nosotros img {
+    width: 70%;
+    border-radius: 12px;
+    margin-top: 15px;
+    box-shadow: 0px 4px 14px rgba(0,0,0,0.2);
+}
+
+/* -------- FORMULARIOS GENERALES -------- */
+.form-container {
+  max-width: 450px;
+  background: #fff;
+  margin: 60px auto;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.12);
+}
+
+.form-container h1 {
+  margin-bottom: 10px;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--amarillo);
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.form-group input, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+/* Botón General */
+.btn {
+  width: 100%;
+  padding: 10px;
+  background: var(--amarillo);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: var(--amarillo-oscuro);
+}
+
+/* ===== NAV ===== */
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+/* Botones del menú */
+.btn-nav {
+    background: var(--amarillo);
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--amarillo-oscuro);
+    transition: .3s ease;
+}
+
+.btn-nav:hover {
+    background: var(--amarillo-oscuro);
+    transform: translateY(-2px);
+}

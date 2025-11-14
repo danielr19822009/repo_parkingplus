@@ -1,0 +1,24 @@
+extends layout
+
+block contenido
+    .nosotros-container
+        h1 Mis Parqueaderos
+        p Aquí puedes ver todos los parqueaderos creados.
+
+        table(style="width:100%; text-align:center; margin-top:20px; border-collapse:collapse;")
+            thead
+                tr
+                    th Nombre
+                    th Dirección
+                    th Capacidad
+                    th Precio/Hora
+            tbody
+                each parqueadero in parqueaderos
+                    tr
+                        td= parqueadero.nombre
+                        td= parqueadero.direccion
+                        td= parqueadero.capacidad
+                        td $#{parqueadero.precioHora}
+
+        a.volver(href="/parqueaderos/crear") Crear otro
+        a.volver(href="/menu") Volver al Panel

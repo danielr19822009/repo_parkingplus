@@ -1,0 +1,27 @@
+extends layout
+
+block main
+    .registro-container
+        h1 Crear Parqueadero
+        p Ingresa los datos para registrar un nuevo parqueadero.
+
+        form(action="/parqueaderos/crear" method="POST" class="form-registro")
+            .form-group
+                label(for="nombre") Nombre del Parqueadero
+                input(type="text" name="nombre" required)
+
+            .form-group
+                label(for="direccion") Dirección
+                input(type="text" name="direccion" required)
+
+            .form-group
+                label(for="capacidad") Capacidad de Espacios
+                input(type="number" name="capacidad" required)
+
+            .form-group
+                label(for="precioHora") Precio por Hora ($)
+                input(type="number" name="precioHora" required)
+
+            button.btn(type="submit") Guardar Parqueadero
+
+        a.volver(href="/menu") Volver al Panel

@@ -1,0 +1,12 @@
+extends layout
+
+block main
+    .home-container
+        h1 Panel de Gestión de Parqueaderos
+        p Elige una opción para continuar.
+
+        .menu-container
+            nav.nav-menu
+                a.btn-nav(href="/parqueaderos/crear") Crear Parqueadero
+                a.btn-nav(href="/parqueaderos") Mis Parqueaderos
+                a.btn-nav(href="/") Salir al Inicio
