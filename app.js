@@ -9,6 +9,7 @@ import usuarioRoutes from './routes/usuarios.js';
 import tipoUsuarioRoutes from './routes/tipoUsuarios.js';
 import homeroutes from './routes/home.js';
 import celdas from './routes/celdas.js';
+import registrovehiculos from './routes/registrovehiculos.js'
 
 // Crear __dirname válido en ES Modules
 const __filename = fileURLToPath(import.meta.url);
@@ -27,10 +28,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// Rutas
+// creo las Rutas virtuales y asocio la importacion de la ruta
 app.use('/usuarios', usuarioRoutes);
 app.use('/tipousuarios', tipoUsuarioRoutes);
 app.use('/celdas', celdas)
+app.use('/registrovehiculos', registrovehiculos);
 
 // Estas son tus rutas principales
 app.use('/', homeroutes);
