@@ -5,8 +5,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
 
-import usuarioRoutes from './routes/usuarios.js';
-import tipoUsuarioRoutes from './routes/tipoUsuarios.js';
+import usuarios from './routes/usuarios.js';
+import tipoUsuarios from './routes/tipoUsuarios.js';
 import homeroutes from './routes/home.js';
 import celdas from './routes/celdas.js';
 import registrovehiculos from './routes/registrovehiculos.js'
@@ -30,8 +30,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // creo las Rutas virtuales y asocio la importacion de la ruta
-app.use('/usuarios', usuarioRoutes);
-app.use('/tipousuarios', tipoUsuarioRoutes);
+app.use('/usuarios', usuarios);
+app.use('/tipousuarios', tipoUsuarios);
 app.use('/celdas', celdas)
 app.use('/registrovehiculos', registrovehiculos);
 app.use('/clientes', clientes)

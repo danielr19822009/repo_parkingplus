@@ -20,7 +20,7 @@ class usuarioModelo {
   }
 
   //creo el metodos para obtener todos los usuarios
-  async getUsuarioAll() {
+  async getUsuariosAll() {
     return await usuarioSchema.find();
   }
 

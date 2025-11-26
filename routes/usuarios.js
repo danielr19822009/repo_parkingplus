@@ -13,7 +13,7 @@ import usuarioController from '../controllers/usuarios.js';
 route.post('/',usuarioController.crearUsuario);
 
 // para obtener todos los usuarios
-route.get('/',usuarioController.getUsuarioAll);
+route.get('/',usuarioController.getUsuariosAll);
 
 // para obtener un usuario
 route.get('/:id',usuarioController.getUsuarioOne);
@@ -23,5 +23,8 @@ route.put('/:id',usuarioController.updateUsuario);
 
 // para eliminar usuarios
 route.delete('/:id',usuarioController.eliminarUsuario);
+
+
+//route.post('/registro',usuarioController.registrar);
 
 export default route;

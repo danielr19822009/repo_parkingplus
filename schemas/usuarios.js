@@ -14,6 +14,8 @@ const usuarioSchema = new mongoose.Schema(
     cod_tipousuario: { type: Number, required: true },
     correo_usuario: { type: String, required: true },
     celular: { type: String, required: true },
+    clave:{type:String,required:true}
+
   },
   { timestamps: true }
 );
