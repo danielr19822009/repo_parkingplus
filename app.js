@@ -39,6 +39,10 @@ app.use('/clientes', clientes)
 // Estas son tus rutas principales
 app.use('/', homeroutes);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 // Iniciar el servidor
 async function iniciarServidor() {
     try {
