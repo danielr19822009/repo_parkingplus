@@ -9,5 +9,6 @@ route.get('/login', proyecto.login);
 route.get('/nosotros', proyecto.contactenos);
 route.get('/parqueaderos', proyecto.parqueadero);
 route.get('/menu', proyecto.menu);
+route.get('/register', proyecto.register);
 
 export default route;

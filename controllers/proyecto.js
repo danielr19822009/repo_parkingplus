@@ -41,6 +41,15 @@ const proyecto = {
       console.error('Error al renderizar nosotros:', error);
       res.status(500).send('Error al cargar la página');
     }
+  },
+
+  register: (req, res) => {
+    try {
+      res.render('registro', { nombrePagina: 'register - ParkingPlus' });
+    } catch (error) {
+      console.error('Error al renderizar registro:', error);
+      res.status(500).send('Error al cargar la página');
+    }
   }
 
 };
