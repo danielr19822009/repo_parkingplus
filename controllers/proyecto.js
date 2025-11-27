@@ -36,11 +36,12 @@ const proyecto = {
 
     parqueadero: (req, res) => {
     try {
-      res.render('parqueaderos', { nombrePagina: 'parqueaderos - ParkingPlus' });
+      res.render('menuparqueadero', { nombrePagina: 'parqueaderos - ParkingPlus' });
     } catch (error) {
       console.error('Error al renderizar nosotros:', error);
       res.status(500).send('Error al cargar la página');
     }
+
   },
 
   register: (req, res) => {
@@ -50,7 +51,18 @@ const proyecto = {
       console.error('Error al renderizar registro:', error);
       res.status(500).send('Error al cargar la página');
     }
+
+  },
+
+crearparqueadero: (req, res) => {
+    try {
+      res.render('crearparqueadero', { nombrePagina: 'Crear parqueaderos - ParkingPlus' });
+    } catch (error) {
+      console.error('Error al renderizar Crear parqueaderos:', error);
+      res.status(500).send('Error al cargar la página');
+    }
   }
+  
 
 };
 
