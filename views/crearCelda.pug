@@ -1,0 +1,28 @@
+extends layout
+
+block main
+    .registro-container
+        h1 Registro de Celda
+        p Completa el formulario para añadir una nueva celda al sistema.
+
+        form(action="/celda/registro", method="POST" class="form-registro")
+
+            .form-group
+                label(for="cod_celda") Código de Celda:
+                input(type="number" id="cod_celda" name="cod_celda" required)
+
+            .form-group
+                label(for="nombre_celda") Nombre de la Celda:
+                input(type="text" id="nombre_celda" name="nombre_celda" required)
+
+            .form-group
+                label(for="descripcion_celda") Descripción:
+                input(type="text" id="descripcion_celda" name="descripcion_celda" required)
+
+            .form-group
+                label(for="cod_vehiculo") Código de Vehículo (opcional):
+                input(type="number" id="cod_vehiculo" name="cod_vehiculo")
+
+            button(type="submit" class="btn") Registrar Celda
+
+        a.volver(href="/") Volver al Inicio

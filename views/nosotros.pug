@@ -1,0 +1,21 @@
+extends layout
+
+
+block main
+    .nosotros-container
+        h1 Nosotros
+        p Somos ParkingPlus, tu aliado en la gestión eficiente de parkings.
+        p Nuestra misión es facilitar la administración de espacios de estacionamiento mediante soluciones innovadoras y tecnológicas.
+
+        .imagen-nosotros
+            img(src="../img/descarga.png" alt="Imagen de Nosotros")
+
+        a.volver(href="/") Volver al Inicio
+        p Si tienes alguna pregunta, no dudes en contactarnos.
+
+        form.form-contacto
+            input(type="email" placeholder="Tu correo electrónico")
+            textarea(placeholder="Tu mensaje")
+            button(type="submit") Enviar Mensaje
+
+

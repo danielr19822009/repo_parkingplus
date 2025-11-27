@@ -1,0 +1,39 @@
+extends layout
+
+block main
+    .home-container
+        h1 Menú de Gestión de Parqueaderos
+        p Selecciona una opción para continuar.
+
+        .menu-container
+            nav.nav-menu
+                
+                a.btn-nav(href="parqueadero/crearparqueadero") Crear Parqueadero
+                a.btn-nav(href="/parqueaderos/reportes") Reportes de Parqueaderos
+                a.btn-nav(href="/") Volver al Inicio
+
+        // ==========================
+        // LISTADO DE PARQUEADEROS CREADOS
+        // ==========================
+        if parqueaderos && parqueaderos.length > 0
+            h2 Lista de Parqueaderos Registrados
+
+            .lista-parqueaderos
+                each p in parqueaderos
+                    .parqueadero-item
+                        h3 #{p.nombre}
+                        p Dirección: #{p.direccion}
+                        p Capacidad: #{p.capacidad}
+                        p Precio Hora: $#{p.precioHora}
+                        p Estado: #{p.activo ? "Activo" : "Inactivo"}
+
+                        .acciones
+                            a.btn-accion(href=`/parqueaderos/${p._id}`) Ver Panel
+                            a.btn-accion(href=`/parqueaderos/editar/${p._id}`) Editar
+                            a.btn-accion(href=`/parqueaderos/eliminar/${p._id}`) Eliminar
+                            if p.activo
+                                a.btn-accion(href=`/parqueaderos/desactivar/${p._id}`) Desactivar
+                            else
+                                a.btn-accion(href=`/parqueaderos/activar/${p._id}`) Activar
+        else
+            p.no-data No hay parqueaderos registrados todavía.

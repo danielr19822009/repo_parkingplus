@@ -1,0 +1,13 @@
+extends layout
+
+block main
+    .home-container
+        h1 Menú del Parqueadero
+        p Selecciona una opción para gestionar el parqueadero.
+
+        .menu-container
+            nav.nav-menu
+                a.btn-nav(href="/celda/registro") Registrar Nueva Celda
+                a.btn-nav(href="/celda/listado") Ver Celdas
+                a.btn-nav(href="/reportes") Reportes del Celdas
+                a.btn-nav(href="/") Volver al Inicio
