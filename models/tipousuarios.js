@@ -1,6 +1,6 @@
 //  Archivo Model | tipo Usuario
 
-//importos desde el schema los tipos de usuarios
+//importos desde el schema los tipos de tipo Usuario
 import tiposUsuarioSchema from "../schemas/tipousuarios.js";
 
 class tipoUsuarioModelo {
@@ -9,7 +9,7 @@ class tipoUsuarioModelo {
     return await tiposUsuarioSchema.create(tipoUsuariodata);
   }
 
-  //update metodo para actualizar un usuario
+  //update metodo para actualizar un tipo Usuario
   async updateTipoUsuario(id, tipoUsuario) {
     return await tiposUsuarioSchema.findOneAndUpdate(id, tipoUsuario, { new: true });
   }
@@ -19,12 +19,12 @@ class tipoUsuarioModelo {
     return await tiposUsuarioSchema.findOneAndDelete(id);
   }
 
-  //creo el metodos para obtener todos los usuarios
+  //creo el metodos para obtener todos los tipo Usuario
   async getTipoUsuarioAll() {
     return await tiposUsuarioSchema.find();
   }
 
-  //obtener un solo usuario
+  //obtener un solo tipo Usuario
   async getTipoUsuarioOne(id) {
     return await tiposUsuarioSchema.findById(id);
   }

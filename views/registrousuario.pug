@@ -1,0 +1,70 @@
+extends layout
+
+block main
+    .registro-container
+        h1 Registro de Usuario
+        p Completa el siguiente formulario para registrarte.
+
+  
+        form#formRegister.form-registro(action="/usuarios" method="POST")
+
+            .form-group
+                label(for="cod_usuario") Código de Usuario:
+                input#cod_usuario(type="number" name="cod_usuario" required)
+
+            .form-group
+                label(for="nombre_usuario") Nombre:
+                input#nombre_usuario(type="text" name="nombre_usuario" required)
+
+            .form-group
+                label(for="apellido_usuario") Apellido:
+                input#apellido_usuario(type="text" name="apellido_usuario" required)
+
+            .form-group
+                label(for="documento_usuario") Documento:
+                input#documento_usuario(type="text" name="documento_usuario" required)
+
+            .form-group
+                label(for="cod_tipousuario") Tipo de Usuario:
+                select#cod_tipousuario(name="cod_tipousuario" required)
+                    option(value="") Seleccione...
+
+            .form-group
+                label(for="correo_usuario") Correo Electrónico:
+                input#correo_usuario(type="email" name="correo_usuario" required)
+
+            .form-group
+                label(for="celular") Celular:
+                input#celular(type="text" name="celular" required)
+
+            .form-group
+                label(for="clave") Contraseña:
+                input#clave(type="password" name="clave" required)
+
+            button.btn(type="submit") Registrarse
+
+        a(href="/login" class="link-volver") Ya tienes cuenta? Iniciar sesión
+
+
+    // script para llenar el select de tipo de usuario
+    script.
+        document.addEventListener("DOMContentLoaded", async () => {
+            const select = document.getElementById("cod_tipousuario");
+
+            try {
+                const response = await fetch("/tipousuarios");
+                const result = await response.json();
+
+                if (!Array.isArray(result.data)) return;
+
+                result.data.forEach(tu => {
+                    const option = document.createElement("option");
+                    option.value = tu.cod_tipousuario;
+                    option.textContent = tu.nombre_tipousuario;
+                    select.appendChild(option);
+                });
+
+            } catch (error) {
+                console.error("Error cargando tipos:", error);
+            }
+        });

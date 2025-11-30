@@ -7,8 +7,8 @@ block main
 
         .menu-container
             nav.nav-menu
-                
-                a.btn-nav(href="parqueadero/crearparqueadero") Crear Parqueadero
+              
+                a.btn-nav(href="/crearparqueadero") Crear Parqueadero
                 a.btn-nav(href="/parqueaderos/reportes") Reportes de Parqueaderos
                 a.btn-nav(href="/") Volver al Inicio
 
@@ -37,3 +37,26 @@ block main
                                 a.btn-accion(href=`/parqueaderos/activar/${p._id}`) Activar
         else
             p.no-data No hay parqueaderos registrados todavía.
+
+    // script para llenar el select de tipo de usuario
+    script.
+        document.addEventListener("DOMContentLoaded", async () => {
+            const select = document.getElementById("cod_parqueadero");
+
+            try {
+                const response = await fetch("/parqueadero");
+                const result = await response.json();
+
+                if (!Array.isArray(result.data)) return;
+
+                result.data.forEach(tu => {
+                    const option = document.createElement("option");
+                    option.value = tu.cod_parqueadero;
+                    option.textContent = tu.nombreparqueadero;
+                    select.appendChild(option);
+                });
+
+            } catch (error) {
+                console.error("Error cargando Parqueadero:", error);
+            }
+        });

@@ -11,6 +11,7 @@ import homeroutes from './routes/home.js';
 import celdas from './routes/celdas.js';
 import registrovehiculos from './routes/registrovehiculos.js'
 import clientes from './routes/clientes.js'
+import parqueaderoRoutes from './routes/parqueadero.js';
 
 // Crear __dirname válido en ES Modules
 const __filename = fileURLToPath(import.meta.url);
@@ -35,6 +36,8 @@ app.use('/tipousuarios', tipoUsuarios);
 app.use('/celdas', celdas)
 app.use('/registrovehiculos', registrovehiculos);
 app.use('/clientes', clientes)
+app.use('/parqueadero', parqueaderoRoutes);
+
 
 // Estas son tus rutas principales
 app.use('/', homeroutes);

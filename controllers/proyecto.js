@@ -1,69 +1,70 @@
 const proyecto = {
   home: (req, res) => {
     try {
-      res.render('login', { nombrePagina: 'login - ParkingPlus' });
+      res.render("login", { nombrePagina: "login - ParkingPlus" });
     } catch (error) {
-      console.error('Error al renderizar login:', error);
-      res.status(500).send('Error al cargar la página');
+      console.error("Error al renderizar login:", error);
+      res.status(500).send("Error al cargar la página");
     }
   },
 
   login: (req, res) => {
     try {
-      res.render('login', { nombrePagina: 'login - ParkingPlus' });
+      res.render("login", { nombrePagina: "login - ParkingPlus" });
     } catch (error) {
-      console.error('Error al renderizar login:', error);
-      res.status(500).send('Error al cargar la página');
+      console.error("Error al renderizar login:", error);
+      res.status(500).send("Error al cargar la página");
     }
   },
-  
+
   contactenos: (req, res) => {
     try {
-      res.render('nosotros', { nombrePagina: 'Nosotros - ParkingPlus' });
+      res.render("nosotros", { nombrePagina: "Nosotros - ParkingPlus" });
     } catch (error) {
-      console.error('Error al renderizar nosotros:', error);
-      res.status(500).send('Error al cargar la página');
-    }
-  },
-    menu: (req, res) => {
-    try {
-      res.render('menuprincipal', { nombrePagina: 'menu - ParkingPlus' });
-    } catch (error) {
-      console.error('Error al renderizar nosotros:', error);
-      res.status(500).send('Error al cargar la página');
+      console.error("Error al renderizar nosotros:", error);
+      res.status(500).send("Error al cargar la página");
     }
   },
 
-    parqueadero: (req, res) => {
+  menu: (req, res) => {
     try {
-      res.render('menuparqueadero', { nombrePagina: 'parqueaderos - ParkingPlus' });
+      res.render("menuprincipal", { nombrePagina: "menu - ParkingPlus" });
     } catch (error) {
-      console.error('Error al renderizar nosotros:', error);
-      res.status(500).send('Error al cargar la página');
+      console.error("Error al renderizar nosotros:", error);
+      res.status(500).send("Error al cargar la página");
     }
-
   },
 
-  register: (req, res) => {
+  parqueadero: (req, res) => {
     try {
-      res.render('registro', { nombrePagina: 'register - ParkingPlus' });
+      res.render("menuparqueadero", {
+        nombrePagina: "parqueaderos - ParkingPlus",
+      });
     } catch (error) {
-      console.error('Error al renderizar registro:', error);
-      res.status(500).send('Error al cargar la página');
+      console.error("Error al renderizar nosotros:", error);
+      res.status(500).send("Error al cargar la página");
     }
-
   },
 
-crearparqueadero: (req, res) => {
+  registrousuario: (req, res) => {
     try {
-      res.render('crearparqueadero', { nombrePagina: 'Crear parqueaderos - ParkingPlus' });
+      res.render("registrousuario", { nombrePagina: "registro - ParkingPlus" });
     } catch (error) {
-      console.error('Error al renderizar Crear parqueaderos:', error);
-      res.status(500).send('Error al cargar la página');
+      console.error("Error al renderizar registro:", error);
+      res.status(500).send("Error al cargar la página");
     }
-  }
-  
+  },
 
+  crearparqueadero: (req, res) => {
+    try {
+      res.render("crearparqueadero", {
+        nombrePagina: "Crear parqueaderos - ParkingPlus",
+      });
+    } catch (error) {
+      console.error("Error al renderizar Crear parqueaderos:", error);
+      res.status(500).send("Error al cargar la página");
+    }
+  },
 };
 
 export default proyecto;
