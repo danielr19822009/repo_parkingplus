@@ -21,6 +21,7 @@ class parqueaderoController {
     // Generar el código incremental automáticamente
     const cod_parqueadero = await getNextSequence("parqueadero");
     const { nombreparqueadero, direccion, capacidad } = req.body;
+    
     const parqueaderoData = await parqueaderoModel.crearparqueadero({
       cod_parqueadero,
       nombreparqueadero,

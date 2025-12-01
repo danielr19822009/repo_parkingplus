@@ -5,27 +5,57 @@ block main
         h1 Crear Parqueadero
         p Ingresa los datos para registrar un nuevo parqueadero.
 
-        // en el action se define la ruta la cual apunta a la carpeta routas
         form#formRegisterparking(action="/parqueadero" method="POST")
-
-
             .form-group
                 label(for="nombreparqueadero") Nombre del Parqueadero
-                input#nombreparqueadero(type="text" name="nombreparqueadero" placeholder="Ej: Parking Central" required)
+                input#nombreparqueadero(type="text" name="nombreparqueadero" required)
 
             .form-group
                 label(for="direccion") Dirección
-                input#direccion(type="text" name="direccion" placeholder="Ej: Calle 10 #25-30" required)
+                input#direccion(type="text" name="direccion" required)
 
             .form-group
-                label(for="capacidad") Capacidad de Espacios
-                input#capacidad(type="number" name="capacidad" placeholder="Solo Numero" required)
-
-           
+                label(for="capacidad") Capacidad
+                input#capacidad(type="number" name="capacidad" required)
 
             button.btn(type="submit") Guardar Parqueadero
 
         a.volver(href="/menu") Volver al Panel
 
-        
 
+block scripts
+    script.
+        const form = document.getElementById("formRegisterparking");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault(); // Evita la recarga
+
+            const formData = new FormData(form);
+
+            const data = Object.fromEntries(formData);
+
+            const response = await fetch("/parqueadero", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Registro Exitoso",
+                    text: result.status
+                });
+
+                form.reset();
+
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: result.msg || "No se pudo registrar el parqueadero"
+                });
+            }
+        });
