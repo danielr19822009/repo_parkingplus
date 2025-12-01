@@ -5,12 +5,7 @@ block main
         h1 Registro de Usuario
         p Completa el siguiente formulario para registrarte.
 
-  
-        form#formRegister.form-registro(action="/usuarios" method="POST")
-
-            .form-group
-                label(for="cod_usuario") Código de Usuario:
-                input#cod_usuario(type="number" name="cod_usuario" required)
+        form#formRegister.form-registro
 
             .form-group
                 label(for="nombre_usuario") Nombre:
@@ -43,28 +38,44 @@ block main
 
             button.btn(type="submit") Registrarse
 
-        a(href="/login" class="link-volver") Ya tienes cuenta? Iniciar sesión
+        a.link-volver(href="/login") Ya tienes cuenta? Iniciar sesión
 
 
-    // script para llenar el select de tipo de usuario
+block scripts
+    script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11")
+
     script.
         document.addEventListener("DOMContentLoaded", async () => {
             const select = document.getElementById("cod_tipousuario");
 
             try {
-                const response = await fetch("/tipousuarios");
-                const result = await response.json();
+                const response = await axios.get("/tipousuarios");
+                const tipos = response.data.data;
 
-                if (!Array.isArray(result.data)) return;
-
-                result.data.forEach(tu => {
+                tipos.forEach(tu => {
                     const option = document.createElement("option");
                     option.value = tu.cod_tipousuario;
                     option.textContent = tu.nombre_tipousuario;
                     select.appendChild(option);
                 });
+            } catch (err) {
+                Swal.fire("Error", "No se pudieron cargar los tipos", "error");
+            }
+        });
+
+        document.getElementById("formRegister").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const data = Object.fromEntries(new FormData(e.target));
+
+            try {
+                const response = await axios.post("/usuarios/registrousuario", data);
+
+                Swal.fire("Usuario creado", "Registro exitoso", "success")
+                    .then(() => location.href = "/login");
 
             } catch (error) {
-                console.error("Error cargando tipos:", error);
+                Swal.fire("Error", "No se pudo registrar el usuario", "error");
             }
         });

@@ -1,33 +1,26 @@
-//  Archivo Model | Usuario
-
-//importos desde el schema de usuarios
 import usuarioSchema from "../schemas/usuarios.js";
 
-class usuarioModelo {
-  //metodo para crear un usuario
-  async crearUsuario(usuariodata) {
-    return await usuarioSchema.create(usuariodata);
-  }
+class UsuarioModelo {
 
-  //update metodo para actualizar un usuario
-  async updateUsuario(id, usuario) {
-    return await usuarioSchema.findOneAndUpdate(id, usuario, { new: true });
-  }
+    static async crearUsuario(data) {
+        return usuarioSchema.create(data);
+    }
 
-  //eliminar usuario
-  async eliminarUsuario(id) {
-    return await usuarioSchema.findOneAndDelete(id);
-  }
+    static async getUsuariosAll() {
+        return usuarioSchema.find();
+    }
 
-  //creo el metodos para obtener todos los usuarios
-  async getUsuariosAll() {
-    return await usuarioSchema.find();
-  }
+    static async getUsuarioOne(id) {
+        return usuarioSchema.findById(id);
+    }
 
-  //obtener un solo usuario
-  async getUsuarioOne(id) {
-    return await usuarioSchema.findById(id);
-  }
+    static async updateUsuario(id, body) {
+        return usuarioSchema.findByIdAndUpdate(id, body, { new: true });
+    }
+
+    static async eliminarUsuario(id) {
+        return usuarioSchema.findByIdAndDelete(id);
+    }
 }
 
-export default new usuarioModelo();
+export default UsuarioModelo;

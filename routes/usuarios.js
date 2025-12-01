@@ -1,27 +1,21 @@
-//Archivo rutas | usuario
+import { Router } from "express";
+import usuarioController from "../controllers/usuarios.js";
 
-import express from 'express';
-const route = express.Router();
+const router = Router();
 
-//importo desde el controlador de usuarios
-import usuarioController from '../controllers/usuarios.js';
+//  rutas fijas
+router.get("/registrousuario", (req, res) => {
+    res.render("registrousuario", { nombrePagina: "Registro de Usuario" });
+});
 
-// Ruta registro usada desde el formulario
-route.post('/registrousuario', usuarioController.crearUsuario);
+router.post("/registrousuario", usuarioController.crearUsuario);
 
-// para crear usuarios general (opcional)
-route.post('/', usuarioController.crearUsuario);
+// 🟦 DESPUÉS rutas que NO causan conflictos
+router.get("/", usuarioController.getUsuariosAll);
 
-// para obtener todos los usuarios
-route.get('/', usuarioController.getUsuariosAll);
+// 🟥 ÚLTIMO rutas dinámicas
+router.get("/:id", usuarioController.getUsuarioOne);
+router.put("/:id", usuarioController.updateUsuario);
+router.delete("/:id", usuarioController.eliminarUsuario);
 
-// para obtener un usuario
-route.get('/:id', usuarioController.getUsuarioOne);
-
-// para actualizar usuarios
-route.put('/:id', usuarioController.updateUsuario);
-
-// para eliminar usuarios
-route.delete('/:id', usuarioController.eliminarUsuario);
-
-export default route;
+export default router;

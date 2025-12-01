@@ -1,20 +1,46 @@
 //Archivo controller | celda
 //importo desde el modelo la clase usuario
 import UsuarioModelo from "../models/usuarios.js";
+import Counter from "../schemas/counter.js";
+
+
+async function getNextSequence(name) {
+  const counter = await Counter.findOneAndUpdate(
+    { id: name },
+    { $inc: { seq: 1 } },
+    { new: true, upsert: true }
+  );
+  return counter.seq;
+}
+
 
 class usuarioController {
   constructor() {}
 
-  //metodos para crear un usuario de parqueadero
-  async crearUsuario(req, res) {
+  // Métodos para crear un usuario
+async crearUsuario(req, res) {
     try {
-      const usuarioData = await UsuarioModelo.crearUsuario(req.body);
-      console.log("Usuario Creado:", usuarioData);
-      res.status(201).json({ status: "usuario Creado Ok", data: usuarioData });
+
+        // Generar el código incremental automático
+        const cod_usuario = await getNextSequence("usuario");
+
+        // Armar el body final
+        const dataUsuario = { 
+            ...req.body, 
+            cod_usuario 
+        };
+        const usuarioCreado = await UsuarioModelo.crearUsuario(dataUsuario);
+        console.log("Usuario Creado:", usuarioCreado);
+        res.status(201).json({
+            status: "Usuario Creado OK",
+            data: usuarioCreado
+        });
+
     } catch (error) {
-      res.status(500).send(error)
+        console.error("Error creando usuario:", error);
+        res.status(500).json({ status: "ERROR", message: error.message });
     }
-  }
+}
 
   //metodo para actualizar un usuario
   async updateUsuario(req, res) {
